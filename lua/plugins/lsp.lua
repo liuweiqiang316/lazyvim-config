@@ -10,4 +10,11 @@ return {
     -- add a keymap
     -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
   end,
+  opts = {
+    setup = {
+      volar = require("lspconfig").volar.setup({
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+      }),
+    },
+  },
 }

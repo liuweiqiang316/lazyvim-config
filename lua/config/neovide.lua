@@ -1,13 +1,4 @@
 if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMono Nerd Font"
-  -- vim.o.guifont = "Monaspace Neon"
-  -- vim.o.guifont = "Monaspace Neon"
-
-  vim.g.neovide_padding_top = 0
-  vim.g.neovide_padding_bottom = 0
-  vim.g.neovide_padding_right = 0
-  vim.g.neovide_padding_left = 0
-
   -- Helper function for transparency formatting
   local alpha = function()
     return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
@@ -17,5 +8,12 @@ if vim.g.neovide then
   vim.g.transparency = 0.8
   vim.g.neovide_background_color = "#0f1117" .. alpha()
 
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
+
+  -- cursor
+  vim.g.neovide_cursor_trail_size = 0.5
   vim.g.neovide_hide_mouse_when_typing = true
 end
