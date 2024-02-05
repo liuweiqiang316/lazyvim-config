@@ -3,18 +3,18 @@ return {
     "navarasu/onedark.nvim",
     opts = {
       style = "darker",
-      -- transparent = true,
+      transparent = true,
     },
   },
   {
     "folke/tokyonight.nvim",
-    -- opts = {
-    --   transparent = true,
-    --   styles = {
-    --     sidebars = "transparent",
-    --     floats = "transparent",
-    --   },
-    -- },
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
   {
     "LazyVim/LazyVim",

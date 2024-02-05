@@ -8,7 +8,7 @@ local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
 -- remapping
-map("n", ";", ":", { desc = "map ; to : in normal mode" })
+-- map("n", ";", ":", { desc = "map ; to : in normal mode" })
 
 -- buffers
 map("n", "<S-j>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
@@ -20,10 +20,10 @@ vim.keymap.set("n", "<S-h>", "^", { desc = "Line header" })
 vim.keymap.set("n", "<S-l>", "$", { desc = "Line end" })
 
 -- toggleterm
-map("n", "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
-map("t", "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
-map("n", "<Space>t", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
-map("t", "<Space>t", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
+map("n", "<C-t>", "<cmd>ToggleTerm direction='tab'<cr>", { desc = "Toggle Terminal" })
+map("t", "<C-t>", "<cmd>ToggleTerm direction='tab'<cr>", { desc = "Toggle Terminal" })
+map("n", "<Space>t", "<cmd>ToggleTerm direction='tab'<cr>", { desc = "Toggle Terminal" })
+map("t", "<Space>t", "<cmd>ToggleTerm direction='tab'<cr>", { desc = "Toggle Terminal" })
 
 -- lsp
 vim.api.nvim_create_autocmd("LspAttach", {
