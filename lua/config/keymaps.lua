@@ -18,6 +18,7 @@ map("n", "<C-k><C-n>", "<cmd>new<cr>", { desc = "New File" })
 -- move
 vim.keymap.set("n", "<S-h>", "^", { desc = "Line header" })
 vim.keymap.set("n", "<S-l>", "$", { desc = "Line end" })
+vim.keymap.set("n", "<S-e>", "%", { desc = "map shift-e to %" })
 
 -- toggleterm
 map("n", "<C-t>", "<cmd>ToggleTerm direction='tab'<cr>", { desc = "Toggle Terminal" })
