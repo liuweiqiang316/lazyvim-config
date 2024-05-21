@@ -47,6 +47,8 @@ vim.keymap.set("n", "<space>df", "0f{V%d", { desc = "delete function" })
 vim.keymap.set("n", "<space>y", "\"ayiw", { desc = "复制当前单词到a剪贴板" })
 -- 将a剪贴板的内容粘贴到当前单词
 vim.keymap.set("n", "<space>p", "viw\"ap", { desc = "将a剪贴板的内容粘贴到当前单词" })
+vim.keymap.set("n", "<space>f", "*")
+vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
 
 -- global search
 vim.keymap.set("n", "?",
