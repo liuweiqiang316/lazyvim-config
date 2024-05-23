@@ -32,6 +32,32 @@ mapKey2Vscode("n", "gf", "references-view.findReferences")
 -- run code
 mapKey2Vscode("n", "<space>rc", "code-runner.run")
 
+--------- folding ---------
+mapKey2Vscode("n", "zM", "editor.foldAll")
+mapKey2Vscode("n", "zR", "editor.unfoldAll")
+mapKey2Vscode("n", "zc", "editor.fold")
+mapKey2Vscode("n", "zC", "editor.foldRecursively")
+mapKey2Vscode("n", "zo", "editor.unfold")
+mapKey2Vscode("n", "zO", "editor.unfoldRecursively")
+mapKey2Vscode("n", "za", "editor.toggleFold")
+
+local function moveCursor(direction)
+    if (vim.v.count == 0 and vim.fn.reg_recording() == '' and vim.fn.reg_executing() == '') then
+        return ('g' .. direction)
+    else
+        return direction
+    end
+end
+
+vim.keymap.set('n', 'k', function()
+    return moveCursor('k')
+end, { expr = true, remap = true })
+vim.keymap.set('n', 'j', function()
+    return moveCursor('j')
+end, { expr = true, remap = true })
+
+--------- folding ---------
+
 -- move line head and end
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
