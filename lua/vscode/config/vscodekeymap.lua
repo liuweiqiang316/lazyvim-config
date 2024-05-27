@@ -31,6 +31,8 @@ mapKey2Vscode("n", "<space>st", "workbench.action.selectTheme")
 mapKey2Vscode("n", "gf", "references-view.findReferences")
 -- run code
 mapKey2Vscode("n", "<space>rc", "code-runner.run")
+-- custom console
+mapKey2Vscode("n", "<space>l", "turboConsoleLog.displayLogMessage")
 
 --------- folding ---------
 mapKey2Vscode("n", "zM", "editor.foldAll")
