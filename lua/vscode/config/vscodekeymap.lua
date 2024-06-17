@@ -77,6 +77,8 @@ vim.keymap.set("n", "<space>y", "\"ayiw", { desc = "复制当前单词到a剪贴
 vim.keymap.set("n", "<space>p", "viw\"ap", { desc = "将a剪贴板的内容粘贴到当前单词" })
 vim.keymap.set("n", "<space>f", "*")
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
+-- 快速跳转到上一个函数名
+vim.keymap.set("n", "<space>[", "][%0w", {desc = "快速跳转到上一个函数名"})
 
 -- global search
 vim.keymap.set("n", "?",
