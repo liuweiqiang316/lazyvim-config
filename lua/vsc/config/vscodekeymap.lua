@@ -79,6 +79,9 @@ vim.keymap.set("n", "<space>f", "*")
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
 -- 快速跳转到上一个函数名
 vim.keymap.set("n", "<space>[", "][%0w", {desc = "快速跳转到上一个函数名"})
+-- vim-visual-multi
+vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)", {desc = "向上添加光标"})
+vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)", {desc = "向下添加光标"})
 
 -- global search
 vim.keymap.set("n", "?",
