@@ -70,18 +70,21 @@ vim.keymap.set("n", "<S-e>", "%", { desc = "map <S-e> to %" })
 vim.keymap.set("v", "<S-e>", "%", { desc = "map <S-e> to %" })
 
 -- delete function
-vim.keymap.set("n", "<space>df", "0f{V%d", { desc = "delete function" })
+vim.keymap.set("n", "<space>df", "0V%d", { desc = "delete function" })
+vim.keymap.set("n", "<space>/", "^<C-v>%I// <Esc>", { desc = "comment" })
 -- 复制当前单词到a剪贴板
 vim.keymap.set("n", "<space>y", "\"ayiw", { desc = "复制当前单词到a剪贴板" })
 -- 将a剪贴板的内容粘贴到当前单词
 vim.keymap.set("n", "<space>p", "viw\"ap", { desc = "将a剪贴板的内容粘贴到当前单词" })
 vim.keymap.set("n", "<space>f", "*")
+vim.keymap.set("v", "<space>f", "y/<c-r>\"<cr>", { desc = "快速跳转到上一个函数名" })
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
 -- 快速跳转到上一个函数名
-vim.keymap.set("n", "<space>[", "][%0w", {desc = "快速跳转到上一个函数名"})
+vim.keymap.set("n", "<space>[", "][%0w", { desc = "快速跳转到上一个函数名" })
 -- vim-visual-multi
-vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)", {desc = "向上添加光标"})
-vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)", {desc = "向下添加光标"})
+vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "向上添加光标" })
+vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "向下添加光标" })
+
 
 -- global search
 vim.keymap.set("n", "?",
