@@ -74,8 +74,8 @@ vim.keymap.set("n", "<space>df", "0V%d", { desc = "delete function" })
 vim.keymap.set("n", "<space>/", "^<C-v>%I// <Esc>", { desc = "comment" })
 -- 复制当前单词到a剪贴板
 vim.keymap.set("n", "<space>y", "\"ayiw", { desc = "复制当前单词到a剪贴板" })
--- yank all file
-vim.keymap.set("n", "<space><space>y", ":%y+<CR>", { desc = "复制整个文件" })
+-- yank file
+vim.keymap.set("n", "<space><space>y", "<CMD>%y+<CR>", { desc = "复制整个文件" })
 -- 将a剪贴板的内容粘贴到当前单词
 vim.keymap.set("n", "<space>p", "viw\"ap", { desc = "将a剪贴板的内容粘贴到当前单词" })
 vim.keymap.set("n", "<space>f", "*")
