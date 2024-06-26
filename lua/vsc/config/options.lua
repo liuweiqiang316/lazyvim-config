@@ -4,3 +4,5 @@
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.g.mapleader = " "
