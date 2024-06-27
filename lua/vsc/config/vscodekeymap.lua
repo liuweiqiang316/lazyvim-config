@@ -18,8 +18,10 @@ mapKey2Vscode("n", "<leader>s", "workbench.action.files.save")
 mapKey2Vscode("n", "<leader>e", "workbench.view.explorer")
 -- switch sidebars
 mapKey2Vscode("n", "<leader>b", "workbench.action.toggleSidebarVisibility")
--- toggle boolean
--- mapKey2Vscode("n", "<leader>b", "extension.toggleBool")
+-- open source manage
+mapKey2Vscode("n", "<leader>g", "workbench.view.scm")
+-- open git-graph.view
+mapKey2Vscode("n", "<leader><leader>g", "git-graph.view")
 
 -- reload window
 mapKey2Vscode("n", "<leader>rw", "workbench.action.reloadWindow")
