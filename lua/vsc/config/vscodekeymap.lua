@@ -70,6 +70,8 @@ vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", ";", ":", { desc = "map ; to : in normal mode" })
 vim.keymap.set("n", "<S-e>", "%", { desc = "map <S-e> to %" })
 vim.keymap.set("v", "<S-e>", "%", { desc = "map <S-e> to %" })
+-- 映射 shift + e 为matchup %
+vim.keymap.set("n", "<S-e>", "<Plug>(matchup-%)", { noremap = false, desc = "映射 shift + e 为matchup %" })
 
 -- delete function
 vim.keymap.set("n", "<leader>df", "0V%d", { desc = "delete function" })
