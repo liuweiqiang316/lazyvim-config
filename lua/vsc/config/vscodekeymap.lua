@@ -6,6 +6,13 @@ end
 -- mapKey2Vscode("n", "<leader>p", "workbench.action.quickOpen")
 -- open output
 mapKey2Vscode("n", "<leader>o", "workbench.action.output.toggleOutput")
+-- open keybindings.json
+mapKey2Vscode("n", "<leader>ok", "workbench.action.openGlobalKeybindingsFile")
+-- open settings.json
+mapKey2Vscode("n", "<leader>os", "workbench.action.openSettingsJson")
+-- open nvim config directry
+local nvimConfigPath = "C:\\Users\\QT-20210608\\AppData\\Local\\nvim"
+vim.keymap.set("n", "<leader>on", "<CMD>!code " .. nvimConfigPath .. "<CR>")
 -- new untitled file
 mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile")
 -- close current editor
