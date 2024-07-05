@@ -11,7 +11,7 @@ mapKey2Vscode("n", "<leader>ok", "workbench.action.openGlobalKeybindingsFile")
 -- open settings.json
 mapKey2Vscode("n", "<leader>os", "workbench.action.openSettingsJson")
 -- open nvim config directry
-local nvimConfigPath = "C:\\Users\\QT-20210608\\AppData\\Local\\nvim"
+local nvimConfigPath = "C:\\Users\\lwq\\AppData\\Local\\nvim"
 vim.keymap.set("n", "<leader>on", "<CMD>!code " .. nvimConfigPath .. "<CR>")
 -- new untitled file
 mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile")
@@ -107,10 +107,5 @@ vim.keymap.set("n", "?",
 
 -- global search
 -- vim.keymap.set("n", "<leader>s",
---     "<Cmd>lua require('vscode-neovim').action('workbench.action.findInFiles', { args = { query = vim.fn.expand('<cword>') } })<CR>",
---     { noremap = true, silent = true })
-
--- global search
--- vim.keymap.set("n", "<leader><leader>",
 --     "<Cmd>lua require('vscode-neovim').action('workbench.action.findInFiles', { args = { query = vim.fn.expand('<cword>') } })<CR>",
 --     { noremap = true, silent = true })
