@@ -11,7 +11,7 @@ mapKey2Vscode("n", "<leader>ok", "workbench.action.openGlobalKeybindingsFile")
 -- open settings.json
 mapKey2Vscode("n", "<leader>os", "workbench.action.openSettingsJson")
 -- open nvim config directry
-local nvimConfigPath = "C:\\Users\\lwq\\AppData\\Local\\nvim"
+local nvimConfigPath = os.getenv('USERPROFILE') .. "\\AppData\\Local\\nvim"
 vim.keymap.set("n", "<leader>on", "<CMD>!code " .. nvimConfigPath .. "<CR>")
 -- new untitled file
 mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile")
@@ -42,6 +42,12 @@ mapKey2Vscode("n", "gf", "references-view.findReferences")
 mapKey2Vscode("n", "<leader>rc", "code-runner.run")
 -- custom console
 mapKey2Vscode("n", "<leader>l", "turboConsoleLog.displayLogMessage")
+-- open all commands
+mapKey2Vscode("n", "<leader><leader>p", "workbench.action.showCommands")
+-- open all commands
+mapKey2Vscode("n", "<leader>vp", "workbench.action.showCommands")
+-- close vscode
+mapKey2Vscode("n", "<leader>vw", "workbench.action.closeWindow")
 
 --------- folding ---------
 mapKey2Vscode("n", "zM", "editor.foldAll")
