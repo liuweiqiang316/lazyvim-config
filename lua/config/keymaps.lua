@@ -18,7 +18,11 @@ map("n", "<C-k><C-n>", "<cmd>new<cr>", { desc = "New File" })
 -- move
 vim.keymap.set("n", "<S-h>", "^", { desc = "Line header" })
 vim.keymap.set("n", "<S-l>", "$", { desc = "Line end" })
-vim.keymap.set("n", "<S-e>", "%", { desc = "map shift-e to %" })
+-- vim.keymap.set("n", "<S-e>", "%", { desc = "map shift-e to %" })
+-- 映射 shift + e 为matchup %
+vim.keymap.set("n", "<S-e>", "<Plug>(matchup-%)", { noremap = false, desc = "映射 shift + e 为matchup %" })
+vim.keymap.set("v", "<S-e>", "<Plug>(matchup-%)", { noremap = false, desc = "映射 shift + e 为matchup %" })
+
 
 -- toggleterm
 map("n", "<C-t>", "<cmd>ToggleTerm direction='tab'<cr>", { desc = "Toggle Terminal" })
