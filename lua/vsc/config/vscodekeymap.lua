@@ -96,6 +96,8 @@ vim.keymap.set("n", "<leader>y", "\"ayiw", { desc = "复制当前单词到a剪�
 vim.keymap.set("n", "<leader><leader>y", "<CMD>%y+<CR>", { desc = "复制整个文件" })
 -- 将a剪贴板的内容粘贴到当前单词
 vim.keymap.set("n", "<leader>p", "viw\"ap", { desc = "将a剪贴板的内容粘贴到当前单词" })
+-- p(粘贴) => p(粘贴) + gv(选中上次的可视化区域) + y(复制)
+vim.keymap.set("v", "p", "pgvy", { desc = "p(粘贴) => p(粘贴) + gv(选中上次的可视化区域) + y(复制)" })
 vim.keymap.set("n", "<leader>f", "*")
 vim.keymap.set("v", "<leader>f", "y/<c-r>\"<cr>", { desc = "快速跳转到上一个函数名" })
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
