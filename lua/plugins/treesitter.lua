@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -38,7 +42,7 @@ return {
     },
     keys = {
       { "<c-space>", desc = "Increment Selection" },
-      { "<bs>",      desc = "Decrement Selection", mode = "x" },
+      { "<bs>", desc = "Decrement Selection", mode = "x" },
     },
     -- opts_extend = { "ensure_installed" },
     opts = {
@@ -87,15 +91,15 @@ return {
           goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
           goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
         },
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["aa"] = "@parameter.outer",
-          }
-        },
+        -- select = {
+        --   enable = true,
+        --   lookahead = true,
+        --   keymaps = {
+        --     ["af"] = "@function.outer",
+        --     ["if"] = "@function.inner",
+        --     ["aa"] = "@parameter.outer",
+        --   },
+        -- },
       },
     },
     ---@param opts TSConfig
