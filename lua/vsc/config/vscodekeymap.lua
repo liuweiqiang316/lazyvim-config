@@ -79,6 +79,11 @@ end, { expr = true, remap = true })
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
 
+for _, operator in pairs({ "d", "c", "y" }) do
+    vim.keymap.set("n", operator .. "H", operator .. "^")
+    vim.keymap.set("n", operator .. "L", operator .. "$")
+end
+
 -- map ; to : in normal mode
 vim.keymap.set("n", ";", ":", { desc = "map ; to : in normal mode" })
 -- vim.keymap.set("n", "<S-e>", "%", { desc = "map <S-e> to %" })
