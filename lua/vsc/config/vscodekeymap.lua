@@ -104,7 +104,7 @@ vim.keymap.set("n", "<leader>p", "viw\"ap", { desc = "将a剪贴板的内容粘�
 -- p(粘贴) => p(粘贴) + gv(选中上次的可视化区域) + y(复制)
 vim.keymap.set("v", "p", "pgvy", { desc = "p(粘贴) => p(粘贴) + gv(选中上次的可视化区域) + y(复制)" })
 vim.keymap.set("n", "<leader>f", "*")
-vim.keymap.set("v", "<leader>f", "y/<c-r>\"<cr>", { desc = "快速跳转到上一个函数名" })
+vim.keymap.set("v", "<leader>f", "y/<c-r>\"<cr>", { desc = "search in visual mode" })
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
 -- 快速跳转到上一个函数名
 vim.keymap.set("n", "<leader>[", "][%0w", { desc = "快速跳转到上一个函数名" })
