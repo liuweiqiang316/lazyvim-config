@@ -77,7 +77,9 @@ end, { expr = true, remap = true })
 
 -- move line head and end
 vim.keymap.set("n", "H", "^")
+vim.keymap.set("x", "H", "^")
 vim.keymap.set("n", "L", "$")
+vim.keymap.set("x", "L", "$")
 
 for _, operator in pairs({ "d", "c", "y" }) do
     vim.keymap.set("n", operator .. "H", operator .. "^")
