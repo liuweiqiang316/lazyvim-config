@@ -1,3 +1,7 @@
+-- if true then
+--   return {}
+-- end
+
 return {
   { -- LSP Configuration & Plugins
     "neovim/nvim-lspconfig",
@@ -22,7 +26,7 @@ return {
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
-      { "folke/neodev.nvim", opts = {} },
+      -- { "folke/neodev.nvim", opts = {} },
     },
     config = function()
       -- Brief Aside: **What is LSP?**
@@ -178,7 +182,16 @@ return {
           },
         },
 
-        volar = { filetypes = { "vue" } },
+        volar = {
+          filetypes = { "vue" },
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
+
+        cssls = {},
 
         lua_ls = {
           -- cmd = {...},
