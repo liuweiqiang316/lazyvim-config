@@ -9,5 +9,6 @@ vim.opt.smartcase = true
 vim.g.mapleader = " "
 
 vim.o.shell = "C:/soft/Git/bin/bash.exe"
--- vim.o.shellcmdflag = "-c"
+vim.o.shellcmdflag = "-c"
+vim.o.shellxquote = ""
 -- vim.o.shellxquote = "("
