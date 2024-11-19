@@ -15,6 +15,9 @@ map("n", "<S-j>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-k>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<C-k><C-n>", "<cmd>new<cr>", { desc = "New File" })
 
+-- map("i", "<C-v>", "<C-r>*", { desc = "map ctrl-v to paste" })
+vim.keymap.set("i", "<C-v>", "<C-r>*", { noremap = true, desc = "map ctrl-v to paste" })
+
 -- move
 vim.keymap.set("n", "<S-h>", "^", { desc = "Line header" })
 vim.keymap.set("n", "<S-l>", "$", { desc = "Line end" })
@@ -45,6 +48,12 @@ vim.keymap.set(
 )
 
 vim.keymap.set("i", "<C-l>", "<Del>", { desc = "delete right char" })
+
+-- move line head and end
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("x", "H", "^")
+vim.keymap.set("n", "L", "$")
+vim.keymap.set("x", "L", "$")
 
 -- vim-visual-multi
 -- vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "向上添加光标" })
