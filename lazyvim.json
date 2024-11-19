@@ -1,15 +1,15 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.rust",
-    "lazyvim.plugins.extras.linting.eslint",
+    "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.util.project",
     "lazyvim.plugins.extras.vscode"
   ],
   "news": {
-    "NEWS.md": "7308"
+    "NEWS.md": "7107"
   },
   "version": 7
 }
