@@ -15,8 +15,7 @@ map("n", "<S-j>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-k>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<C-k><C-n>", "<cmd>new<cr>", { desc = "New File" })
 
--- map("i", "<C-v>", "<C-r>*", { desc = "map ctrl-v to paste" })
-vim.keymap.set("i", "<C-v>", "<C-r>*", { noremap = true, desc = "map ctrl-v to paste" })
+map("i", "<C-v>", "<C-r>*", { desc = "map ctrl-v to paste" })
 
 -- move
 vim.keymap.set("n", "<S-h>", "^", { desc = "Line header" })
