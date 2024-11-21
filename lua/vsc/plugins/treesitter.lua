@@ -1,9 +1,10 @@
+if true then return {} end
 return {
   {
     "folke/which-key.nvim",
     opts = {
       spec = {
-        { "<BS>", desc = "Decrement Selection", mode = "x" },
+        { "<BS>",      desc = "Decrement Selection", mode = "x" },
         { "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
       },
     },
@@ -30,7 +31,7 @@ return {
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     keys = {
       { "<c-space>", desc = "Increment Selection" },
-      { "<bs>", desc = "Decrement Selection", mode = "x" },
+      { "<bs>",      desc = "Decrement Selection", mode = "x" },
     },
     opts_extend = { "ensure_installed" },
     ---@type TSConfig
