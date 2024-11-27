@@ -3,20 +3,20 @@
 -- Add any additional autocmds here
 
 -- 用于normal模式和insert模式切换中英文
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-  pattern = "*",
-  command = 'silent !C:/greenSoft/im-select.exe "2052"',
-})
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-  pattern = "*",
-  command = 'silent !C:/greenSoft/im-select.exe "1033"',
-})
+-- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+--   pattern = "*",
+--   command = 'silent !C:/greenSoft/im-select.exe "2052"',
+-- })
+-- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+--   pattern = "*",
+--   command = 'silent !C:/greenSoft/im-select.exe "1033"',
+-- })
 --
-vim.api.nvim_create_autocmd({ "CmdLineLeave" }, {
-  pattern = "*",
-  callback = function(event)
-    local exeStr = vim.fn.getcmdline()
-    -- print("👇", exeStr)
-    print("👉", exeStr)
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "CmdLineLeave" }, {
+--   pattern = "*",
+--   callback = function(event)
+--     local exeStr = vim.fn.getcmdline()
+--     -- print("👇", exeStr)
+--     print("👉", exeStr)
+--   end,
+-- })
