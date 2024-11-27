@@ -17,5 +17,16 @@ return {
       -- add a keymap
       -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
     end,
-  }
+    opts = {
+      autoformat = false,
+    },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    ops = {
+      options = {
+        always_show_bufferline = true,
+      },
+    },
+  },
 }
