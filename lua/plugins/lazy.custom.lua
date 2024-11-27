@@ -28,5 +28,15 @@ return {
         always_show_bufferline = true,
       },
     },
+    {
+      "nvim-telescope/telescope.nvim",
+      ops = {
+        defaults = {
+          i = {
+            ["<c-v>"] = false,
+          },
+        },
+      },
+    },
   },
 }
