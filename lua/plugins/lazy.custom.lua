@@ -23,19 +23,33 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    ops = {
+    opts = {
       options = {
         always_show_bufferline = true,
       },
     },
-    {
-      "nvim-telescope/telescope.nvim",
-      ops = {
-        defaults = {
-          i = {
-            ["<c-v>"] = false,
-          },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        i = {
+          ["<c-v>"] = false,
         },
+      },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    -- version = false,
+    opts = {
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol",
+        virt_text_priority = 100,
+        delay = 500,
+        ignore_whitespace = false,
       },
     },
   },
