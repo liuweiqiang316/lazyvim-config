@@ -3,23 +3,25 @@
 -- Add any additional autocmds here
 
 -- 用于normal模式和insert模式切换中英文
--- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
---   pattern = "*",
---   command = 'silent !C:/greenSoft/im-select.exe "2052"',
--- })
--- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
---   pattern = "*",
---   command = 'silent !C:/greenSoft/im-select.exe "1033"',
--- })
---
--- vim.api.nvim_create_autocmd({ "CmdLineLeave" }, {
---   pattern = "*",
---   callback = function(event)
---     local exeStr = vim.fn.getcmdline()
---     -- print("👇", exeStr)
---     print("👉", exeStr)
---   end,
--- })
+local function switchIm(imCode)
+  local str = "C:/greenSoft/im-select.exe"
+
+  vim.loop.spawn(str, {
+    args = { imCode },
+    detach = true,
+  })
+end
+
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  callback = function()
+    switchIm("2052")
+  end,
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  callback = function()
+    switchIm("1033")
+  end,
+})
 
 -- 定义一个函数来获取当前光标下的单词，并在下一行插入console.log语句
 local function insert_console_log()
