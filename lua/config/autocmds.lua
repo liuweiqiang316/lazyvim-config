@@ -43,3 +43,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "*",
   command = "nnoremap <space>l <CMD>InsertConsoleLog<CR>",
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.opt_local.formatoptions:remove("c")
+    vim.opt_local.formatoptions:remove("r")
+    vim.opt_local.formatoptions:remove("o")
+  end,
+})
