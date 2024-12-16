@@ -1,4 +1,6 @@
-if true then return {} end
+if true then
+  return {}
+end
 return {
 
   -- Use <tab> for completion and snippets (supertab)
@@ -50,6 +52,10 @@ return {
           end
         end, { "i", "s" }),
       })
+
+      local hlc_formatting = require("nvim-highlight-colors").format
+
+      opts.formatting = vim.tbl_extend("force", opts.formatting, { format = hlc_formatting })
     end,
   },
 }
