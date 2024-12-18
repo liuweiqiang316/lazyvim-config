@@ -16,11 +16,13 @@ return {
       },
     },
   },
+  { "Mofiqul/vscode.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "onedark",
       colorscheme = "tokyonight",
+      -- colorscheme = "vscode",
     },
   },
 }
