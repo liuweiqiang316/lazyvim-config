@@ -10,6 +10,7 @@ return {
       "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
       desc = "Switch Opened Buffer",
     },
+    { "<leader>;", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
   },
   opts = function(_, opts)
     local actions = require("fzf-lua.actions")
@@ -18,8 +19,8 @@ return {
         formatter = "path.filename_first",
       },
       winopts = {
-        height = 0.99,
-        width = 0.99,
+        height = 0.88,
+        width = 0.88,
         preview = {
           horizontal = "right:40%",
         },
