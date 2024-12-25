@@ -24,6 +24,10 @@ map("i", "<C-n>", "<Right>", { desc = "move to Right" })
 map("i", "<C-p>", "<Left>", { desc = "move to Left" })
 map("i", "<C-S-n>", "<C-Right>", { desc = "move to Right word" })
 map("i", "<C-S-p>", "<C-Left>", { desc = "move to Left word" })
+map("i", "<C-CR>", "<C-o>o", { desc = "Remap Ctrl + Enter" })
+
+map("i", "zz", "zt", { desc = "move zz Left zt" })
+
 map("n", "<c-`>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
@@ -57,8 +61,8 @@ vim.keymap.set("v", "<S-e>", "<Plug>(MatchitVisualForward)", { noremap = false, 
 vim.keymap.set("i", "<C-l>", "<Del>", { desc = "delete right char" })
 
 -- vim-visual-multi
--- vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "向上添加光标" })
--- vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "向下添加光标" })
+vim.keymap.set("n", "<M-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "向上添加光标" })
+vim.keymap.set("n", "<M-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "向下添加光标" })
 
 -- lsp
 vim.api.nvim_create_autocmd("LspAttach", {
