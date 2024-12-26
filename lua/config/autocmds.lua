@@ -52,3 +52,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
     vim.opt_local.formatoptions:remove("o")
   end,
 })
+
+vim.api.nvim_create_user_command("CopyAbsolutePath", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to clipboard')
+end, {})
+
+vim.api.nvim_create_user_command("CopyRelPath", function()
+  vim.api.nvim_call_function("setreg", { "+", vim.fn.fnamemodify(vim.fn.expand("%"), ":.") })
+  vim.notify("Copied")
+end, {})

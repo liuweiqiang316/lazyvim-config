@@ -33,6 +33,11 @@ map("n", "<c-`>", function()
 end, { desc = "Terminal (Root Dir)" })
 map("t", "<C-`>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
+map("n", "<leader>ya", "<cmd>%y+<cr>", { desc = "复制整个文件" })
+map("n", "<leader>yr", "<cmd>CopyRelPath<cr>", { desc = "Coopy Relative Filepath" })
+map("n", "<leader>yp", "<cmd>CopyAbsolutePath<cr>", { desc = "Coopy Absolute Filepath" })
+map("n", "<M-S-c>", "<cmd>CopyAbsolutePath<cr>", { desc = "Coopy Absolute Filepath" })
+
 vim.keymap.set("n", "<C-f>", "*")
 vim.keymap.set("v", "<C-f>", 'y/<C-R>"<CR>')
 

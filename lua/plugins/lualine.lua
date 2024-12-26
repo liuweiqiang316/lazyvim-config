@@ -5,6 +5,9 @@ return {
   },
   opts = {
     sections = {
+      lualine_x = {
+        "fileformat",
+      },
       lualine_z = {
         {
           function()
