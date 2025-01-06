@@ -4,18 +4,40 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = function(_, opts)
+    -- opts.options.component_separators = { left = '', right = '' }
+    opts.options.component_separators = { left = '⟩', right = '⟨' }
+
+
     table.insert(opts.sections.lualine_x, "fileformat")
     table.insert(opts.sections.lualine_x,
       {
         function()
-          local handle = io.popen('node -v')                -- 执行 `node -v` 命令
+          local handle = io.popen("node -v")                -- 执行 `node -v` 命令
           local result = handle:read("*a")                  -- 获取命令输出
           handle:close()                                    -- 关闭文件句柄
           return result:match("^v(%d+%.%d+%.%d+)") or "N/A" -- 提取版本号，若无则显示 "N/A"
         end,
-        -- icon = "\\ued44"
+        icon = "",
+        color = {
+          fg = "#5FA04E",
+        },
       }
     )
+    -- table.insert(opts.sections.lualine_x,
+    --   {
+    --     function()
+    --       local handle = io.popen("npm -v")                -- 执行 `node -v` 命令
+    --       local result = handle:read("*a")                 -- 获取命令输出
+    --       handle:close()                                   -- 关闭文件句柄
+    --       return result:match("^(%d+%.%d+%.%d+)") or "N/A" -- 提取版本号，若无则显示 "N/A"
+    --     end,
+    --     icon = "",
+    --     color = {
+    --       fg = "#CB3837",
+    --     },
+    --   }
+    -- )
+
     table.insert(opts.sections.lualine_z,
       {
         function()
