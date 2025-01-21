@@ -48,11 +48,10 @@ vim.keymap.set("n", "<leader>[", "][%0w", { desc = "快速跳转到上一个函�
 vim.keymap.set("n", "<leader>ts", "/setup<CR>", { desc = "goto vue setup script" })
 
 -- move
-vim.keymap.set("n", "<S-h>", "^", { desc = "Line header" })
-vim.keymap.set("n", "<S-l>", "$", { desc = "Line end" })
-vim.keymap.set("v", "<S-h>", "^", { desc = "Line header" })
-vim.keymap.set("v", "<S-l>", "$", { desc = "Line end" })
-
+vim.keymap.set("n", "H", "^", { desc = "Line header" })
+vim.keymap.set("n", "L", "$", { desc = "Line end" })
+vim.keymap.set("v", "H", "^", { desc = "Line header" })
+vim.keymap.set("v", "L", "$", { desc = "Line end" })
 for _, operator in pairs({ "d", "c", "y" }) do
   vim.keymap.set("n", operator .. "H", operator .. "^")
   vim.keymap.set("n", operator .. "L", operator .. "$")
