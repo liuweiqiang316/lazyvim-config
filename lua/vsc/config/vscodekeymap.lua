@@ -38,6 +38,7 @@ mapKey2Vscode("n", "<leader>cf", "editor.action.formatDocument")
 mapKey2Vscode("n", "<leader>st", "workbench.action.selectTheme")
 -- find all references
 mapKey2Vscode("n", "gf", "references-view.findReferences")
+mapKey2Vscode("n", "gr", "editor.action.goToReferences")
 -- run code
 mapKey2Vscode("n", "<leader>rc", "code-runner.run")
 -- custom console
