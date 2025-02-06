@@ -2,63 +2,87 @@ local function mapKey2Vscode(mode, keystr, vscodecommand, opts)
   vim.keymap.set(mode, keystr, "<Cmd>lua require('vscode').action('" .. vscodecommand .. "')<CR>", opts)
 end
 
--- -- quick open
--- mapKey2Vscode("n", "<leader>p", "workbench.action.quickOpen")
--- open output
-mapKey2Vscode("n", "<leader>o", "workbench.action.output.toggleOutput")
--- open keybindings.json
-mapKey2Vscode("n", "<leader>ok", "workbench.action.openGlobalKeybindingsFile")
--- open settings.json
-mapKey2Vscode("n", "<leader>os", "workbench.action.openSettingsJson")
--- open nvim config directry
-local nvimConfigPath = os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim"
-vim.keymap.set("n", "<leader>on", "<CMD>!code " .. nvimConfigPath .. "<CR>")
--- new untitled file
-mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile")
--- close current editor
-mapKey2Vscode("n", "<leader>q", "workbench.action.closeActiveEditor")
--- vim.keymap.set("n", "<leader>q", "<c-w>")
+-----------------------------
+-- Leader 快捷键映射 (字母顺序)
+-----------------------------
+-- 文件操作
+mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile")  -- 新文件
+mapKey2Vscode("n", "<leader>q", "workbench.action.closeActiveEditor")      -- 关闭当前编辑器
+mapKey2Vscode("n", "<leader>s", "workbench.action.files.save")             -- 保存文件
 
--- save file
-mapKey2Vscode("n", "<leader>s", "workbench.action.files.save")
--- switch explorer
-mapKey2Vscode("n", "<leader>e", "workbench.view.explorer")
--- switch sidebars
-mapKey2Vscode("n", "<leader>b", "workbench.action.toggleSidebarVisibility")
--- open source manage
-mapKey2Vscode("n", "<leader>g", "workbench.view.scm")
--- open git-graph.view
-mapKey2Vscode("n", "<leader><leader>g", "git-graph.view")
+-- 界面切换
+mapKey2Vscode("n", "<leader>b", "workbench.action.toggleSidebarVisibility")  -- 切换侧边栏
+mapKey2Vscode("n", "<leader>e", "workbench.view.explorer")                   -- 资源管理器
+mapKey2Vscode("n", "<leader>g", "workbench.view.scm")                        -- 源代码管理
+mapKey2Vscode("n", "<leader>o", "workbench.action.output.toggleOutput")      -- 输出面板
 
--- reload window
-mapKey2Vscode("n", "<leader>rw", "workbench.action.reloadWindow")
--- code format
-mapKey2Vscode("n", "<leader>cf", "editor.action.formatDocument")
--- switch theme
-mapKey2Vscode("n", "<leader>st", "workbench.action.selectTheme")
--- find all references
-mapKey2Vscode("n", "gf", "references-view.findReferences")
-mapKey2Vscode("n", "gr", "editor.action.goToReferences", { nowait = true })
--- run code
-mapKey2Vscode("n", "<leader>rc", "code-runner.run")
--- custom console
-mapKey2Vscode("n", "<leader>l", "turboConsoleLog.displayLogMessage")
--- open all commands
-mapKey2Vscode("n", "<leader><leader>p", "workbench.action.showCommands")
--- open all commands
-mapKey2Vscode("n", "<leader>vp", "workbench.action.showCommands")
--- close vscode
-mapKey2Vscode("n", "<leader>vw", "workbench.action.closeWindow")
+-- 配置相关
+mapKey2Vscode("n", "<leader>ok", "workbench.action.openGlobalKeybindingsFile")  -- 打开快捷键配置
+mapKey2Vscode("n", "<leader>os", "workbench.action.openSettingsJson")           -- 打开设置文件
+local nvimConfigPath = os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim"     -- Neovim配置目录
+vim.keymap.set("n", "<leader>on", "<CMD>!code " .. nvimConfigPath .. "<CR>")    -- 打开nvim配置
 
---------- folding ---------
+-- 高级操作
+mapKey2Vscode("n", "<leader>cf", "editor.action.formatDocument")               -- 代码格式化
+mapKey2Vscode("n", "<leader>rc", "code-runner.run")                            -- 运行代码
+mapKey2Vscode("n", "<leader>rw", "workbench.action.reloadWindow")              -- 重载窗口
+mapKey2Vscode("n", "<leader>st", "workbench.action.selectTheme")               -- 切换主题
+
+-- 双Leader快捷键
+mapKey2Vscode("n", "<leader><leader>g", "git-graph.view")                      -- Git图表
+mapKey2Vscode("n", "<leader><leader>p", "workbench.action.showCommands")       -- 显示所有命令
+mapKey2Vscode("n", "<leader><leader>y", "<CMD>%y+<CR>")                        -- 复制整个文件
+
+-- VSCode特殊操作
+mapKey2Vscode("n", "<leader>vp", "workbench.action.showCommands")              -- 显示命令面板
+mapKey2Vscode("n", "<leader>vw", "workbench.action.closeWindow")               -- 关闭VSCode窗口
+
+-----------------------------
+-- 普通模式快捷键
+-----------------------------
+-- 代码导航
+mapKey2Vscode("n", "gf", "references-view.findReferences")                   -- 查找引用
+mapKey2Vscode("n", "gr", "editor.action.goToReferences", { nowait = true })  -- 转到引用
+
+-- 光标移动增强
+vim.keymap.set("n", "H", "^")  -- 行首
+vim.keymap.set("n", "L", "$")  -- 行尾
+
+-- 搜索相关
+vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")  -- 清除高亮
+vim.keymap.set("n", "<leader>f", "*")         -- 搜索当前单词
+vim.keymap.set("n", "?", [[<Cmd>lua require('vscode-neovim').action('workbench.action.findInFiles', { args = { query = vim.fn.expand('<cword>') } })<CR>]])
+vim.keymap.set("x", "?", [[y<Cmd>lua require('vscode-neovim').action('workbench.action.findInFiles', { args = { query = vim.fn.getreg('"') } })<CR>]])
+
+-- 折叠操作
 mapKey2Vscode("n", "zM", "editor.foldAll")
 mapKey2Vscode("n", "zR", "editor.unfoldAll")
+mapKey2Vscode("n", "za", "editor.toggleFold")
 mapKey2Vscode("n", "zc", "editor.fold")
 mapKey2Vscode("n", "zC", "editor.foldRecursively")
 mapKey2Vscode("n", "zo", "editor.unfold")
 mapKey2Vscode("n", "zO", "editor.unfoldRecursively")
-mapKey2Vscode("n", "za", "editor.toggleFold")
 
+-----------------------------
+-- 可视模式快捷键
+-----------------------------
+vim.keymap.set("v", "H", "^")  -- 行首
+vim.keymap.set("v", "L", "$")  -- 行尾
+vim.keymap.set("v", "<leader>f", 'y/<c-r>"<cr>')  -- 可视化模式搜索
+vim.keymap.set("v", "p", "pgvy")  -- 智能粘贴
+
+-----------------------------
+-- 特殊操作符映射
+-----------------------------
+for _, operator in pairs({ "d", "c", "y" }) do
+  vim.keymap.set("n", operator .. "H", operator .. "^")  -- 操作行首
+  vim.keymap.set("n", operator .. "L", operator .. "$")  -- 操作行尾
+end
+
+-----------------------------
+-- 自定义功能
+-----------------------------
+-- 智能光标移动（保持计数和宏支持）
 local function moveCursor(direction)
   if vim.v.count == 0 and vim.fn.reg_recording() == "" and vim.fn.reg_executing() == "" then
     return ("g" .. direction)
@@ -66,63 +90,24 @@ local function moveCursor(direction)
     return direction
   end
 end
+vim.keymap.set("n", "j", function() return moveCursor("j") end, { expr = true, remap = true })
+vim.keymap.set("n", "k", function() return moveCursor("k") end, { expr = true, remap = true })
 
-vim.keymap.set("n", "k", function()
-  return moveCursor("k")
-end, { expr = true, remap = true })
-vim.keymap.set("n", "j", function()
-  return moveCursor("j")
-end, { expr = true, remap = true })
+-- 快速注释/取消注释
+vim.keymap.set("n", "<leader>/", "^<C-v>%I// <Esc>")
 
---------- folding ---------
+-- 代码操作
+vim.keymap.set("n", "<leader>df", "0V%d")  -- 删除函数
+vim.keymap.set("n", "<leader>y", '"ayiw')  -- 复制单词到a寄存器
+vim.keymap.set("n", "<leader>p", 'viw"ap') -- 从a寄存器粘贴
 
--- move line head and end
-vim.keymap.set("n", "H", "^", { desc = "Line header" })
-vim.keymap.set("n", "L", "$", { desc = "Line end" })
-vim.keymap.set("v", "H", "^", { desc = "Line header" })
-vim.keymap.set("v", "L", "$", { desc = "Line end" })
-for _, operator in pairs({ "d", "c", "y" }) do
-  vim.keymap.set("n", operator .. "H", operator .. "^")
-  vim.keymap.set("n", operator .. "L", operator .. "$")
-end
+-- 括号匹配增强
+vim.keymap.set("n", "<S-e>", "<Plug>(matchup-%)", { noremap = false })
+vim.keymap.set("v", "<S-e>", "<Plug>(matchup-%)", { noremap = false })
 
--- map ; to : in normal mode
-vim.keymap.set("n", ";", ":", { desc = "map ; to : in normal mode" })
--- vim.keymap.set("n", "<S-e>", "%", { desc = "map <S-e> to %" })
--- vim.keymap.set("v", "<S-e>", "%", { desc = "map <S-e> to %" })
--- 映射 shift + e 为matchup %
-vim.keymap.set("n", "<S-e>", "<Plug>(matchup-%)", { noremap = false, desc = "映射 shift + e 为matchup %" })
-vim.keymap.set("v", "<S-e>", "<Plug>(matchup-%)", { noremap = false, desc = "映射 shift + e 为matchup %" })
+-- 多光标操作
+vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)")  -- 向下添加光标
+vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)")    -- 向上添加光标
 
--- delete function
-vim.keymap.set("n", "<leader>df", "0V%d", { desc = "delete function" })
-vim.keymap.set("n", "<leader>/", "^<C-v>%I// <Esc>", { desc = "comment" })
--- 复制当前单词到a剪贴板
-vim.keymap.set("n", "<leader>y", '"ayiw', { desc = "复制当前单词到a剪贴板" })
--- yank file
-vim.keymap.set("n", "<leader><leader>y", "<CMD>%y+<CR>", { desc = "复制整个文件" })
--- 将a剪贴板的内容粘贴到当前单词
-vim.keymap.set("n", "<leader>p", 'viw"ap', { desc = "将a剪贴板的内容粘贴到当前单词" })
--- p(粘贴) => p(粘贴) + gv(选中上次的可视化区域) + y(复制)
-vim.keymap.set("v", "p", "pgvy", { desc = "p(粘贴) => p(粘贴) + gv(选中上次的可视化区域) + y(复制)" })
-vim.keymap.set("n", "<leader>f", "*")
-vim.keymap.set("v", "<leader>f", 'y/<c-r>"<cr>', { desc = "search in visual mode" })
-vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
--- 快速跳转到上一个函数名
-vim.keymap.set("n", "<leader>[", "][%0w", { desc = "快速跳转到上一个函数名" })
--- vim-visual-multi
-vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "向上添加光标" })
-vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "向下添加光标" })
-
--- global search
-vim.keymap.set(
-  "n",
-  "?",
-  "<Cmd>lua require('vscode-neovim').action('workbench.action.findInFiles', { args = { query = vim.fn.expand('<cword>') } })<CR>",
-  { noremap = true, silent = true }
-)
-
--- global search
--- vim.keymap.set("n", "<leader>s",
---     "<Cmd>lua require('vscode-neovim').action('workbench.action.findInFiles', { args = { query = vim.fn.expand('<cword>') } })<CR>",
---     { noremap = true, silent = true })
+-- 功能增强
+vim.keymap.set("n", ";", ":")  -- 快速进入命令模式
