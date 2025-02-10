@@ -8,7 +8,7 @@ local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
 -- remapping
-map("n", ";", function()
+map({ "n", "x" }, ";", function()
   -- 模拟直接按下: 从而解决直接映射无法打开Cmdline弹窗的问题
   vim.api.nvim_feedkeys(":", "n", false)
 end, { desc = "map ; to : in normal mode" })
