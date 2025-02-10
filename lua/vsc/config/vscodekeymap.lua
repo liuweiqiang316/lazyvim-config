@@ -6,7 +6,7 @@ end
 -- Leader 快捷键映射 (字母顺序)
 -----------------------------
 -- 文件操作
-mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile") -- 新文件
+-- mapKey2Vscode("n", "<leader>n", "workbench.action.files.newUntitledFile") -- 新文件
 mapKey2Vscode("n", "<leader>q", "workbench.action.closeActiveEditor")     -- 关闭当前编辑器
 mapKey2Vscode("n", "<leader>s", "workbench.action.files.save")            -- 保存文件
 
@@ -111,6 +111,7 @@ vim.keymap.set("v", "<S-e>", "<Plug>(matchup-%)", { noremap = false })
 -- 多光标操作
 vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Add-Cursor-Down)") -- 向下添加光标
 vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)")   -- 向上添加光标
+vim.keymap.set("n", "<leader>n", "<Plug>(VM-Find-Under)")
 
 -- 功能增强
 vim.keymap.set("n", ";", ":") -- 快速进入命令模式
