@@ -114,3 +114,19 @@ vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Add-Cursor-Up)")   -- 向上添加光�
 
 -- 功能增强
 vim.keymap.set("n", ";", ":") -- 快速进入命令模式
+
+
+local function createRangeBasedCommandKeymap(keystr, prefix, desc)
+  vim.keymap.set({ 'n', 'x' }, keystr, function()
+    local mode = vim.api.nvim_get_mode().mode
+    local range = '%'
+    if mode == "V" then
+      range = "'<,'>"
+    end
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":<C-u>" .. range .. prefix .. "/\\v", true, true, true), "n",
+      false)
+  end, { desc = desc, })
+end
+
+createRangeBasedCommandKeymap('<leader><leader>s', 's', "快速打开替换命令")
+createRangeBasedCommandKeymap('<leader><leader>g', 'g', "快速打开global命令")
