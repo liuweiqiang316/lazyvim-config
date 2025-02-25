@@ -29,3 +29,28 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
         switchIm("1033")
     end,
 })
+local function vue_watch()
+    local cword = vim.fn.expand("<cword>")
+    local code = {
+        "watch(",
+        "  " .. cword .. ",",
+        "  () => {",
+        "    console.log('" .. cword .. "', " .. cword .. ")",
+        "  },",
+        "  {",
+        "    deep: true,",
+        "    immediate: true",
+        "  }",
+        ")",
+    }
+    vim.api.nvim_put(code, "l", true, true)
+end
+
+vim.api.nvim_create_user_command("VueWatch", vue_watch, { nargs = 0 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "vue",
+    callback = function()
+        vim.keymap.set("n", "<Leader>vw", vue_watch, { buffer = true })
+    end
+})

@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader><leader>y", "<CMD>%y+<CR>")                 -- 行�
 
 -- VSCode特殊操作
 mapKey2Vscode("n", "<leader>vp", "workbench.action.showCommands") -- 显示命令面板
-mapKey2Vscode("n", "<leader>vw", "workbench.action.closeWindow")  -- 关闭VSCode窗口
+mapKey2Vscode("n", "<leader>cw", "workbench.action.closeWindow")  -- 关闭VSCode窗口
 
 -----------------------------
 -- 普通模式快捷键
